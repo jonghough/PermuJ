@@ -21,7 +21,10 @@ Alt =: (I. @: (0.5&*) @: >: @: (C.!.2)) { ]
 NB. Generate Cyclic Group of order y
 Cyc =: i. |."(0 1) i.
 
-
+NB. Generate Dihedral Group of order y.
+NB. i.e. generated group has y permutations. 
+NB. (Notation D_n, or D_2n)
+Dih =: ( (|. @: (0&{) ) ( (C."(_ 1) ) , ]) ]) @: Cyc
 
 
 NB. -----------------------------------------
