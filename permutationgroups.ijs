@@ -13,13 +13,13 @@ NB. Generate Symmetric Group of order y
 Sym =: (i. @: !) A. i.
 
 
-NB. Generate Alternating group from
-NB. corresponding Symmetric Group
-Alt =: (I. @: (0.5&*) @: >: @: (C.!.2)) { ]
+NB. Generate Alternating group of order y
+Alt =: ( (I. @: (1&=) @: (C.!.2)) { ] ) @: Sym
 
 
 NB. Generate Cyclic Group of order y
 Cyc =: i. |."(0 1) i.
+
 
 NB. Generate Dihedral Group of order y.
 NB. i.e. generated group has y permutations. 
@@ -37,7 +37,7 @@ order =: *./ @ (# & >"_) @ C.
 
 
 NB. Get inverse of permutation
-NB. TODO
+inverse =: /:
 
 
 NB. Conjugates y by x. i.e. calculates permutation
@@ -64,12 +64,23 @@ conjugate_list =. conj_class"(_ 1)/~
 NB. Gets the array of conjugacy classes of the 
 NB. given group. Nubs out duplicate arrays in
 NB. conjugate_list to give the conjugacy classes.
-conjugacy_classes =: ~. @: (/:~"2) @: conjugate_list
+conjugacy_classes =: ~. @: ( /:~"2 ) @: conjugate_list
+
+
+NB. Stabilizer of point 0, in group y
+stab0 =: ( I. @: (0&=) @: (0&{"1) ) { ]
+
+
+NB. Stabilizer of point x in group y.
+NB. Will fail if x is larger than number of
+NB. objects y is permuting.
+stabp =:  ( I. @: ( [ =  {"1) ) { ]
 
 
 NB. -----------------------------------------
 NB. Example usage
 NB. -----------------------------------------
+
 
 NB. Example
 NB. s4 =. Sym 4
