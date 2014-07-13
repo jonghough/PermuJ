@@ -45,6 +45,14 @@ NB. equal to x^(_1)*y*x.
 conjugate =: ([: /:"1 [) C."(1 1) (C."(1 1)~)
 
 
+NB. Gives the right cosets of element y in group x.
+rcosets =: ~.@:(/:~"2) @:( ] C."(_ 1) [)
+
+
+NB. Gives the left cosets of element y in group x.
+lcosets =: ~.@:(/:~"2) @: ( C."1"1 _ )
+
+
 NB. -----------------------------------------
 NB. Verbs for conjugacy classes
 NB. -----------------------------------------
@@ -77,6 +85,7 @@ NB. objects y is permuting.
 stabp =:  ( I. @: ( [ =  {"1) ) { ]
 
 
+
 NB. -----------------------------------------
 NB. Example usage
 NB. -----------------------------------------
@@ -84,6 +93,6 @@ NB. -----------------------------------------
 
 NB. Example
 NB. s4 =. Sym 4
-NB. a4 =. Alt s4
+NB. a4 =. Alt 4
 NB. show all conjugacy classes:
 NB. conjugacy_classes a4 
