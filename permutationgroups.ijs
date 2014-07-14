@@ -85,6 +85,12 @@ NB. objects y is permuting.
 stabp =:  ( I. @: ( [ =  {"1) ) { ]
 
 
+NB. Returns the center of group y. Calculates center by
+NB. conjugating all elements, i.e. |y|^2 conjugations,
+NB. and matches those that leave original element unchanged.
+NB. Slow ~ O(n^2).
+center =: I. @: ( < ="(_ 2 ) ( <"2 @: ( ] conjugate"(1 _) ] ) ) ) ) { ]
+
 
 NB. -----------------------------------------
 NB. Example usage
@@ -96,3 +102,16 @@ NB. s4 =. Sym 4
 NB. a4 =. Alt 4
 NB. show all conjugacy classes:
 NB. conjugacy_classes a4 
+NB. -----------------------------------------
+NB. Need the directproduct script
+NB. load "directproduct.ijs"
+NB. s4 =. Sym 4
+NB. c7 =. Cyc 7
+NB. s4xc7 =. s4 dir_prod c7 
+NB. i.e. the direct product of S4 by C7.
+NB. -----------------------------------------
+NB. d8 =. Dih 8
+NB. Get conjugacy classes of dihedral group.
+NB. conjugacy_classes d8
+NB. -----------------------------------------
+
