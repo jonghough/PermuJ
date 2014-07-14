@@ -89,7 +89,7 @@ NB. Returns the center of group y. Calculates center by
 NB. conjugating all elements, i.e. |y|^2 conjugations,
 NB. and matches those that leave original element unchanged.
 NB. Slow ~ O(n^2).
-center =: I. @: ( < ="(_ 2 ) ( <"2 @: ( ] conjugate"(1 _) ] ) ) ) ) { ]
+center =: ( I. @: ( < ="(_ 2 ) ( <"2 @: ( ] conjugate"(1 _) ] ) ) ) ) { ]
 
 
 NB. -----------------------------------------
