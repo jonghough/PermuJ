@@ -24,7 +24,7 @@ Cyc =: i. |."(0 1) i.
 NB. Generate Dihedral Group of order y.
 NB. i.e. generated group has y permutations. 
 NB. (Notation D_n, or D_2n)
-Dih =: ( (|. @: (0&{) ) ( (C."(_ 1) ) , ]) ]) @: Cyc
+Dih =: ( (|. @: (0&{) ) ( (C."(_ 1) ) ,~ ]) ]) @: Cyc
 
 
 NB. -----------------------------------------
@@ -42,7 +42,7 @@ inverse =: /:
 
 NB. Returns 1 if y is identity element,
 NB. reutrns 0 otherwise.
-is_idenitity =: < = ( < @: C./~ )
+is_identity =: < = ( < @: C./~ )
 
 
 NB. Gets the identity element's index in group y.
@@ -106,7 +106,8 @@ element_order =: 4 : 0
 grp =. x
 elt =. y
 cnt =. 1
-while. ( < (0&{grp) ) &~: (< elt) do.
+id  =. < ( get_identity grp ) { grp
+while. ( id&~: < elt ) *. (cnt < 500 ) do.
 	elt =. y C. elt
 	cnt =. cnt + 1
 end.
