@@ -40,6 +40,15 @@ NB. Get inverse of permutation
 inverse =: /:
 
 
+NB. Returns 1 if y is identity element,
+NB. reutrns 0 otherwise.
+is_idenitity =: < = ( < @: C./~ )
+
+
+NB. Gets the identity element's index in group y.
+get_identity =: I. @:( is_identity"1 )
+
+
 NB. Conjugates y by x. i.e. calculates permutation
 NB. equal to x^(_1)*y*x.
 conjugate =: ([: /:"1 [) C."(1 1) (C."(1 1)~)
@@ -102,7 +111,7 @@ while. ( < (0&{grp) ) &~: (< elt) do.
 	cnt =. cnt + 1
 end.
 cnt NB. return count, order of y in group x.
-
+)
 
 NB. -----------------------------------------
 NB. Example usage
