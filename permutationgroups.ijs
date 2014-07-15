@@ -92,6 +92,18 @@ NB. Slow ~ O(n^2).
 center =: ( I. @: ( < ="(_ 2 ) ( <"2 @: ( ] conjugate"(1 _) ] ) ) ) ) { ]
 
 
+NB. Returns the element y's order in group x.
+element_order =: 4 : 0
+grp =. x
+elt =. y
+cnt =. 1
+while. ( < (0&{grp) ) &~: (< elt) do.
+	elt =. y C. elt
+	cnt =. cnt + 1
+end.
+cnt NB. return count, order of y in group x.
+
+
 NB. -----------------------------------------
 NB. Example usage
 NB. -----------------------------------------
