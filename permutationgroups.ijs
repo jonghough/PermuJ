@@ -101,25 +101,33 @@ NB. Slow ~ O(n^2).
 center =: ( I. @: ( < ="(_ 2 ) ( <"2 @: ( ] conjugate"(1 _) ] ) ) ) ) { ]
 
 
-NB. Returns the element y's order in group x.
-element_order =: 4 : 0
-grp =. x
-elt =. y
-cnt =. 1
-max =. 2 + # x NB. Failsafe; break loop if concatenations exceed order of group.
-id  =. ( get_identity grp ) { grp
-while. ( id -.@-:"(1 1) elt ) *. ( cnt < max ) do.
-	elt =. y C. elt
-	cnt =. cnt + 1
-end.
-cnt NB. return count, order of y in group x.
-)
-
-
 NB. Returns 1 if the group, y, is cyclic,
 NB. 0 otherwise. Searches for element, g,
 NB. such that o(g) = |y|.
-is_cyclic =: # e. element_order"(_ 1)/~
+NB. Slow. TODO speed up.
+is_cyclic =: # e. order"1/~
+
+
+NB. Orbit of element y in group x.
+NB. Returns the list of indices in y's orbit.
+orbit =: ~. @: ([ i."(1 _) ] )
+
+
+NB. Returns the list of orbit sizes for each
+NB. element of group y.
+orbit_sizes =: ] ( # @: orbit"(_ 0) ) (0&{"2)
+
+
+NB. Returns 1 if group y is transitive, 0 otherwise.
+NB. TODO This is too slow. Should stop calculation
+NB. if one element's orbit size is less than group order.
+is_transitive =: 3 : 0
+if. is_cyclic y do.
+	1
+else.
+	( ( +/ @: orbit_sizes ) = ( *: @: # ) ) y
+end.
+)
 
 
 NB. -----------------------------------------
