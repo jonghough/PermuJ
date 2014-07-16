@@ -106,13 +106,21 @@ element_order =: 4 : 0
 grp =. x
 elt =. y
 cnt =. 1
+max =. 2 + # x NB. Failsafe; break loop if concatenations exceed order of group.
 id  =. < ( get_identity grp ) { grp
-while. ( id&~: < elt ) *. (cnt < 500 ) do.
+while. ( id -.@-:"(1 1) elt ) *. ( cnt < 500 ) do.
 	elt =. y C. elt
 	cnt =. cnt + 1
 end.
 cnt NB. return count, order of y in group x.
 )
+
+
+NB. Returns 1 if the group, y, is cyclic,
+NB. 0 otherwise. Searches for element, g,
+NB. such that o(g) = |y|.
+is_cyclic. =: # e. element_order"(_ 1)/~
+
 
 NB. -----------------------------------------
 NB. Example usage
