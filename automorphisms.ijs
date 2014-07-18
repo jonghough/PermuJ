@@ -20,3 +20,5 @@ else.
 end.
 )
 
+totient=: (- ~:)&.q:
+

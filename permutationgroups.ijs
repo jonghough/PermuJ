@@ -130,6 +130,11 @@ end.
 )
 
 
+NB. Returns 1 if permutation set y is a group,
+NB. and 0 otherwise.
+is_group =: (~.@: ( /:~"2 ) @: ] ) -: (,/ @: ~. @: (/:~"2 ) @: (] (C."(_ 1) ) ] ) )
+
+
 NB. -----------------------------------------
 NB. Example usage
 NB. -----------------------------------------
