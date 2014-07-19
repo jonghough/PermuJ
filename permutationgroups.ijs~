@@ -3,7 +3,7 @@ NB. related verbs.
 NB. @author Jon Hough
 NB. @since 10 July 2014
 
-load 'dll'
+
 NB. -----------------------------------------
 NB. Verbs for generating groups
 NB. -----------------------------------------
@@ -132,16 +132,7 @@ end.
 
 NB. Returns 1 if permutation set y is a group,
 NB. and 0 otherwise.
-is_group =: is_closed *. has_inverse
-
-
-NB. Returns 1 if permutations set is closed.
-is_closed =: (~.@: ( /:~"2 ) @: ] ) -: (,/ @: ~. @: (/:~"2 ) @: (] (C."(_ 1) ) ] ) )
-
-
-NB. Returns 1 if permutation set y contains the inverses of all its permutations,
-NB. otherwise returns 0.
-has_inverse =:   (~.@: ( /:~"2 ) @: ] ) -: ( ~. @: (/:~"2 ) @: ( /:"1))
+is_group =: (~.@: ( /:~"2 ) @: ] ) -: (,/ @: ~. @: (/:~"2 ) @: (] (C."(_ 1) ) ] ) )
 
 
 NB. -----------------------------------------
