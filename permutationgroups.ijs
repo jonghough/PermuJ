@@ -62,6 +62,11 @@ NB. Gives the left cosets of element y in group x.
 lcosets =: ~.@:(/:~"2) @: ( C."1"1 _ )
 
 
+NB. Returns the set of right cosets of subgroup y
+NB. in group x. 
+get_rcosets =: ~.@:(/:~"2)@:(rcosets"(1 _))
+
+
 NB. -----------------------------------------
 NB. Verbs for conjugacy classes
 NB. -----------------------------------------
