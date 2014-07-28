@@ -6,7 +6,7 @@ NB.@since 10 July 2014
 
 
 NB. Raw cross product of permutation sets x and y
-cp =. ,/ @ ,"_1 _"_ _1
+cp =: ,/ @ ,"_1 _"_ _1
 
 
 NB. Create direct product permutation list
