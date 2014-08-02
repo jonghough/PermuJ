@@ -1,0 +1,4 @@
+NB. Init script.
+
+
+load '../permutationgroups.ijs'
