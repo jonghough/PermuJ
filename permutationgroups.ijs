@@ -64,7 +64,12 @@ lcosets =: ~.@:(/:~"2) @: ( C."1"1 _ )
 
 NB. Returns the set of right cosets of subgroup y
 NB. in group x. 
-get_rcosets =: ~.@:(/:~"2)@:(rcosets"(1 _))
+get_rcosets =: ~.@:( /:~"2 )@:( rcosets"(1 _) )
+
+
+NB. Gets the right transversals of subgroup y in
+NB. group x.
+r_transversals =. 0&{"2 @: get_rcosets
 
 
 NB. -----------------------------------------
