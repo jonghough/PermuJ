@@ -3,7 +3,6 @@ NB. related verbs.
 NB. @author Jon Hough
 NB. @since 10 July 2014
 
-load 'dll'
 NB. -----------------------------------------
 NB. Verbs for generating groups
 NB. -----------------------------------------
@@ -138,6 +137,12 @@ else.
 	( ( +/ @: orbit_sizes ) = ( *: @: # ) ) y
 end.
 )
+
+
+NB. y is permutation group.
+NB. returns 1 if y is symmetric group.
+NB. returns 0 otherwise.
+is_symmetric =: # = (! @: {. @: (#"1))
 
 
 NB. Returns 1 if permutation set y is a group,
