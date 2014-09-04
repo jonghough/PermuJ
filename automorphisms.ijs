@@ -2,8 +2,6 @@ NB. Automorphisms of permutation groups.
 NB. @author Jon Hough
 NB. @since 16 July 2014
 
-NB. TODO load permutationgroupsi.ijs script.
-
 
 NB. Returns the automorphism group of group y.
 NB. Returns 0 if automorphism group is unkown.
@@ -20,5 +18,7 @@ else.
 end.
 )
 
+
+NB. Euler totient function
 totient=: (- ~:)&.q:
 
