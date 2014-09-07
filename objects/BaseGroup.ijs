@@ -9,6 +9,7 @@ coclass BaseGroup
 
 
 create =: verb define
+	permutations =: ".
 	order =: 0
 	is_abelian =: 0
 	is_transitive =: 0

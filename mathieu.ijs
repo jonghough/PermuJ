@@ -41,4 +41,4 @@ add =. (2&|)@: +
 NB.Calculate if modulo addition is evenly cut,
 NB. for calculating Steiner SYstem blocks for
 NB. S(5,8,24) Steiner System.
-even_cut =: (0&=)@:(2&|)@:+/@:,@:add
+even_cut =: (4&=)@:+/@:,@:add
