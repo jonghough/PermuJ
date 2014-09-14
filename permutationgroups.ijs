@@ -114,7 +114,7 @@ NB. Returns 1 if the group, y, is cyclic,
 NB. 0 otherwise. Searches for element, g,
 NB. such that o(g) = |y|.
 NB. Slow. TODO speed up.
-is_cyclic =: # e. order"1/~
+is_cyclic =: # e. (order"1)
 
 
 NB. Orbit of element y in group x.
