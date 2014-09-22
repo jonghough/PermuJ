@@ -5,12 +5,10 @@ NB. @author Jon Hough
 NB. @since 5th September 2014
 
 
-coclass BaseGroup
+coclass 'BaseGroup'
 
-
+permutations =: 1
 create =: verb define
-	permutations =: ".@:( 1&{.)@:>y
-	
-	
+	permutations =: ". y	
 )
 destroy =: codestroy
