@@ -15,3 +15,16 @@ sylow_one =: verb define
 	syl =: orders decomp y
 	syl
 )
+
+NB. Calculate the number of sylow-p subgroups of group y,
+NB. using Sylow's Theorem 3.
+sylow_three =: verb define
+	
+	decompN =: 2&p:@:#
+	ordersN =: ~.@:,/@:((0&{"2) ^"(0 0) (1&{"2)) 
+	NB. Number of sylow p-subgroups of group y
+	NB. divides |y|/p^N
+	coprime =: %~
+	NB.TODO
+	NB.poss =: 		 (>:@:i.@:#)
+)
