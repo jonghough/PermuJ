@@ -71,7 +71,7 @@ derived_series =: verb define
 			result =: result, <( 'Cyc ',":or)
 		NB. TODO -- Dihedral case etc.
 		elseif. 1 do.
-			result =: result, <( '??? ',":o)
+			result =: result, <( '??? ',":or)
 		end.
 		ogrp =. # grp
 		grp =. derived_subgroup grp
