@@ -16,15 +16,28 @@ sylow_one =: verb define
 	syl
 )
 
-NB. Calculate the number of sylow-p subgroups of group y,
-NB. using Sylow's Theorem 3.
+NB. Calculate the *possible* number of sylow-p subgroups of group y,
+NB. using Sylow's Theorem 3. For each prime p that divides |y|,
+NB. this returns a list of the possible number of Sylow-p subgroups
+NB. of y.
 sylow_three =: verb define
-	
+	ord =: # y
 	decompN =: 2&p:@:#
+	NB. List of primes dividing |y|
+	primeList =: ~. (3&p:) # y
+	NB. Orders of the primes dividing |y|
 	ordersN =: ~.@:,/@:((0&{"2) ^"(0 0) (1&{"2)) 
-	NB. Number of sylow p-subgroups of group y
-	NB. divides |y|/p^N
-	coprime =: %~
-	NB.TODO
-	NB.poss =: 		 (>:@:i.@:#)
+	NB. The value of each prime p to the max power dividing |y|.
+	maxPowers =:  ordersN  decompN y
+	NB. Initial possible values for the number of Sylow-p subgroups.
+	poss =: (i.@:#) y
+	NB. Coprime list: List of |y|/p^n for each prime p.
+	coprimeList =:%&(maxPowers) # y
+	NB. Test Sylow's theorem 3 (modulo tests).
+	test =: ((((1&="(1 0))@:(primeList&|"(1 0)))*.((0&="(1 0))@:(coprimeList&|"(1 0)))) * ])
+	NB. Calculate result
+	res =: ~.@:(test"0) poss
+	NB. box with original prime powers.
+	res =: (2 1) $ ((<  maxPowers), <"2 res )
+	res
 )
