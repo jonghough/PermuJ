@@ -51,3 +51,30 @@ DST =: derived_subgroup^:_
 NB. Returns 1 if group y is solvable,
 NB. 0 otherwise.
 is_solvable =: (1&=)@:#@:DST
+
+
+derived_series =: verb define
+	result =: < 'DERIVED SERIES: '
+	ord =: #@:{.
+	grp =: y
+	ogrp =: _1+ # grp 
+	while. 0 = (ogrp = ( # grp)) do.
+		o =. ord grp
+		or =: # grp
+		if. or = 1 do.
+			result =: result, <'Identity'
+		elseif. is_symmetric grp do.
+			result =: result, <( 'Sym ',":o)
+		elseif. is_alternating grp do.
+			result =: result, <( 'Alt ',":o)
+		elseif. is_cyclic grp do.
+			result =: result, <( 'Cyc ',":or)
+		NB. TODO -- Dihedral case etc.
+		elseif. 1 do.
+			result =: result, <( '??? ',":o)
+		end.
+		ogrp =. # grp
+		grp =. derived_subgroup grp
+	end.
+	result
+)

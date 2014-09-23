@@ -144,6 +144,10 @@ NB. returns 1 if y is symmetric group.
 NB. returns 0 otherwise.
 is_symmetric =: # = (! @: {. @: (#"1))
 
+NB. y is permutation group.
+NB. returns 1 if y is alternating group.
+NB. returns 0 otherwise.
+is_alternating =:((2&*)@:#) = (! @: {. @: (#"1))
 
 NB. Returns 1 if permutation set y is a group,
 NB. and 0 otherwise.
