@@ -38,3 +38,16 @@ end.
 NB. Returns true if group y is perfect.
 NB. i.e. y is equal to its commutator subgroup.
 is_perfect =: # = ( # @: derived_subgroup )  
+
+
+
+
+NB. ================================================
+NB. Derived series
+NB. ================================================
+NB. derived series termination group
+DST =: derived_subgroup^:_
+
+NB. Returns 1 if group y is solvable,
+NB. 0 otherwise.
+is_solvable =: (1&=)@:#@:DST
