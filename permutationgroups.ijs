@@ -119,7 +119,11 @@ is_cyclic =: # e. (order"1)
 
 NB. Orbit of element y in group x.
 NB. Returns the list of indices in y's orbit.
-orbit =: ~. @: ([ i."(1 _) ] )
+orbit =: ~.@:( /:~"1 ) @: ([ i."(1 _) ] )
+
+
+NB. Returns the orbit of element y in group x, boxed.
+orbit_boxed =: <@:~.@:( /:~"1 ) @: ([ i."(1 _) ] )
 
 
 NB. Returns the list of orbit sizes for each
@@ -162,6 +166,26 @@ NB. Returns 1 if permutation set y contains the inverses of all its permutations
 NB. otherwise returns 0.
 has_inverse =:   (~.@: ( /:~"2 ) @: ] ) -: ( ~. @: (/:~"2 ) @: ( /:"1))
 
+
+NB. Returns 1 if group y is a direct product,
+NB. otherwise returns 0.
+is_directproduct =: verb define
+	NB. Get the number of disjoint orbits and get rid of any orbits of length 1,
+	NB. i.e. stable points. Then count the number. If at least two
+	NB. disjoint orbits then we have a direct product.
+
+	NB. Test for disjoint orbits.
+	orbitsplit =:  ~.@:(] orbit_boxed"(_ 0) (i.@:# @: ({."2)))
+	orbits =: orbitsplit y
+
+	NB. remove orbits of length 1 (i.e. stable points)
+	orbits =: ((I.@:(1&<)@:>@:(#&.>)) { ]) orbits
+	if. (# orbits) > 1 do.
+		1
+	elseif. 1 do.
+		0
+	end.
+)
 
 NB. -----------------------------------------
 NB. Example usage

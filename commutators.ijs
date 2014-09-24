@@ -61,6 +61,9 @@ NB. 0 otherwise.
 is_solvable =: (1&=)@:#@:DST
 
 
+NB. Returns the derived series of group y
+NB. as a boxed list, with the group isomorphism of ech
+NB. item in the series if known.
 derived_series =: verb define
 	result =: < 'DERIVED SERIES: '
 	ord =: #@:{.
