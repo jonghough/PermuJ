@@ -81,6 +81,9 @@ derived_series =: verb define
 		elseif. is_cyclic grp do.
 			result =: result, <( 'Cyc ',":or)
 		NB. TODO -- Dihedral case etc.
+		NB. direct product test
+		elseif. is_directproduct grp do.
+			result =: result, <( 'Direct product ',":or)
 		elseif. 1 do.
 			result =: result, <( '??? ',":or)
 		end.
