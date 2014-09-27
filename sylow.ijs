@@ -22,6 +22,7 @@ NB. this returns a list of the possible number of Sylow-p subgroups
 NB. of y.
 sylow_three =: verb define
 	ord =: # y
+	div=:(<.=>.)@:%
 	decompN =: 2&p:@:#
 	NB. List of primes dividing |y|
 	primeList =: ~. (3&p:) # y
@@ -34,8 +35,8 @@ sylow_three =: verb define
 	NB. Coprime list: List of |y|/p^n for each prime p.
 	coprimeList =:%&(maxPowers) # y
 	NB. Test Sylow's theorem 3 (modulo tests).
-	test =: ((((1&="(1 0))@:(primeList&|"(1 0)))*.((0&="(1 0))@:(coprimeList&|"(1 0)))) * ])
-	NB. Calculate result
+	test =: ((((1&="(1 0))@:(primeList&|"(1 0)))*.((1&="(1 0))@:(coprimeList&div"(1 0)))) * ])
+NB. Calculate result
 	res =: ~.@:(test"0) poss
 	NB. box with original prime powers.
 	res =: (2 1) $ ((<  maxPowers), <"2 res )
