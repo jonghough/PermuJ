@@ -196,8 +196,9 @@ NB. e.g. if group is C2xC3 then will return
 NB. Boxed C2, C3.
 select_dp_subgroups =: verb define
 	boxed =: orbitsplit y
-	((i.@:#)"0@:[) { ])
-	NB. TODO
+	extract_subgroups =: ( ~.@:({"1) )&.>
+	subgroups =: boxed extract_subgroups (< y)
+	subgroups
 )
 
 NB. -----------------------------------------
