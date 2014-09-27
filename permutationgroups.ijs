@@ -167,6 +167,11 @@ NB. otherwise returns 0.
 has_inverse =:   (~.@: ( /:~"2 ) @: ] ) -: ( ~. @: (/:~"2 ) @: ( /:"1))
 
 
+NB. Returns the boxed disjoint orbits of elements of 
+NB. group y.
+orbitsplit =:  ~.@:(] orbit_boxed"(_ 0) (i.@:# @: ({."2)))
+	
+
 NB. Returns 1 if group y is a direct product,
 NB. otherwise returns 0.
 is_directproduct =: verb define
@@ -174,8 +179,6 @@ is_directproduct =: verb define
 	NB. i.e. stable points. Then count the number. If at least two
 	NB. disjoint orbits then we have a direct product.
 
-	NB. Test for disjoint orbits.
-	orbitsplit =:  ~.@:(] orbit_boxed"(_ 0) (i.@:# @: ({."2)))
 	orbits =: orbitsplit y
 
 	NB. remove orbits of length 1 (i.e. stable points)
@@ -185,6 +188,16 @@ is_directproduct =: verb define
 	elseif. 1 do.
 		0
 	end.
+)
+
+
+NB. Returns the direct product subgroups of group y.
+NB. e.g. if group is C2xC3 then will return
+NB. Boxed C2, C3.
+select_dp_subgroups =: verb define
+	boxed =: orbitsplit y
+	((i.@:#)"0@:[) { ])
+	NB. TODO
 )
 
 NB. -----------------------------------------
