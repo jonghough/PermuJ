@@ -191,14 +191,46 @@ is_directproduct =: verb define
 )
 
 
-NB. Returns the direct product subgroups of group y.
-NB. e.g. if group is C2xC3 then will return
-NB. Boxed C2, C3.
+0 :0 
+Returns the direct product subgroups of group y.
+e.g. if group is C2xC3 then will return
+Boxed C2, C3.
+)
 select_dp_subgroups =: verb define
 	boxed =: orbitsplit y
 	extract_subgroups =: ( ~.@:({"1) )&.>
 	subgroups =: boxed extract_subgroups (< y)
 	subgroups
+)
+
+
+0 :0 
+Decomposes a direct product group into its constituent
+groups. Returns the names of the groups if known, otherwise
+returns the group's order.
+e.g. if G = S3xA4 then decompose_directproduct G
+should return: 'Sym 3, Alt 4', as boxed strings.
+)
+decompose_directproduct =: verb define
+	result =: ''
+	subs =: select_dp_subgroups y
+	for_sb.  subs do.
+		grp =: > sb
+		or =: # grp
+		o =: #@:{. grp
+		if. or = 1 do.
+			result =: result, <'Identity'
+		elseif. is_symmetric grp do.
+			result =: result, <( 'Sym ',":o)
+		elseif. is_alternating grp do.
+			result =: result, <( 'Alt ',":o)
+		elseif. is_cyclic grp do.
+			result =: result, <( 'Cyc ',":or)
+		elseif. 1 do.
+			result =: result, <( '??? ',":or)
+		end.
+	end.
+	result
 )
 
 NB. -----------------------------------------
