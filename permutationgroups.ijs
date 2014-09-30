@@ -158,22 +158,30 @@ NB. and 0 otherwise.
 is_group =: is_closed *. has_inverse
 
 
-NB. Returns 1 if permutations set is closed.
+0 :0
+Returns 1 if permutations set is closed.
+)
 is_closed =: (~.@: ( /:~"2 ) @: ] ) -: (,/ @: ~. @: (/:~"2 ) @: (] (C."(_ 1) ) ] ) )
 
 
-NB. Returns 1 if permutation set y contains the inverses of all its permutations,
-NB. otherwise returns 0.
+0 :0
+Returns 1 if permutation set y contains the inverses of all its permutations,
+otherwise returns 0.
+)
 has_inverse =:   (~.@: ( /:~"2 ) @: ] ) -: ( ~. @: (/:~"2 ) @: ( /:"1))
 
 
-NB. Returns the boxed disjoint orbits of elements of 
-NB. group y.
+0 :0
+Returns the boxed disjoint orbits of elements of 
+group y.
+)
 orbitsplit =:  ~.@:(] orbit_boxed"(_ 0) (i.@:# @: ({."2)))
-	
 
-NB. Returns 1 if group y is a direct product,
-NB. otherwise returns 0.
+	
+0 :0
+Returns 1 if group y is a direct product,
+otherwise returns 0.
+)
 is_directproduct =: verb define
 	NB. Get the number of disjoint orbits and get rid of any orbits of length 1,
 	NB. i.e. stable points. Then count the number. If at least two
@@ -233,6 +241,19 @@ decompose_directproduct =: verb define
 	result
 )
 
+
+0 :0
+Returns the intersection of permutation sets x and y.
+If x and y are groups then x inter y will also be
+a group.
+)
+inter =: (I.@:e."(2 2){ [)
+
+
+0 :0
+Returns the union of permutation sets x and y.
+)
+union =. ~."2@:(,"2)
 NB. -----------------------------------------
 NB. Example usage
 NB. -----------------------------------------
