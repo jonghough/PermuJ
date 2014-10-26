@@ -1,7 +1,8 @@
-NB. Script contains various Permutation Group Theory
-NB. related verbs.
-NB. @author Jon Hough
-NB. @since 10 July 2014
+0 : 0 Script contains various Permutation Group Theory
+ related verbs.
+ @author Jon Hough
+ @since 10 July 2014
+)
 
 NB. -----------------------------------------
 NB. Verbs for generating groups
@@ -50,7 +51,7 @@ get_identity =: I. @:( is_identity"1 )
 
 NB. Conjugates y by x. i.e. calculates permutation
 NB. equal to x^(_1)*y*x.
-conjugate =: ([: /:"1 [) C."(1 1) (C."(1 1)~)
+conjugate =: (([: /:"1 [) C."(1 1) (C."(1 1)~))
 
 
 NB. Gives the right cosets of element y in group x.
@@ -78,19 +79,19 @@ NB. -----------------------------------------
 
 NB. Creates conjugacy class of element y
 NB. in group x.
-conj_class =: ~. @: conjugate
+conj_class =: <@:( /:~"2 )@:~. @: conjugate
 
 
 NB. Gets the conjugacy class output by conjugating
 NB. group y with itself. (Will contain multiple copies of
 NB. the same conjugacy classes).
-conjugate_list =. conj_class"(_ 1)/~
+conjugate_list =: conj_class"(_ 1)/~
 
 
 NB. Gets the array of conjugacy classes of the 
 NB. given group. Nubs out duplicate arrays in
 NB. conjugate_list to give the conjugacy classes.
-conjugacy_classes =: ~. @: ( /:~"2 ) @: conjugate_list
+conjugacy_classes =: ~.@: conjugate_list
 
 
 NB. Stabilizer of point 0, in group y
@@ -143,18 +144,24 @@ end.
 )
 
 
-NB. y is permutation group.
-NB. returns 1 if y is symmetric group.
-NB. returns 0 otherwise.
+0 : 0 
+y is permutation group.
+returns 1 if y is symmetric group.
+returns 0 otherwise.
+)
 is_symmetric =: # = (! @: {. @: (#"1))
 
-NB. y is permutation group.
-NB. returns 1 if y is alternating group.
-NB. returns 0 otherwise.
+0 : 0 
+y is permutation group.
+returns 1 if y is alternating group.
+returns 0 otherwise.
+)
 is_alternating =:((2&*)@:#) = (! @: {. @: (#"1))
 
-NB. Returns 1 if permutation set y is a group,
-NB. and 0 otherwise.
+0 :0 
+Returns 1 if permutation set y is a group,
+ and 0 otherwise. 
+)
 is_group =: is_closed *. has_inverse
 
 
