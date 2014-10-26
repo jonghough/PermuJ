@@ -9,22 +9,28 @@ NB. -----------------------------------------
 NB. Verbs for generating groups
 NB. -----------------------------------------
 
-
-NB. Generate Symmetric Group of order y
+0 : 0 
+Generate Symmetric Group of order y
+)
 Sym =: (i. @: !) A. i.
 
 
-NB. Generate Alternating group of order y
+0 : 0 
+Generate Alternating group of order y
+)
 Alt =: ( (I. @: (1&=) @: (C.!.2)) { ] ) @: Sym
 
 
-NB. Generate Cyclic Group of order y
+0 : 0 
+Generate Cyclic Group of order y
+)
 Cyc =: i. |."(0 1) i.
 
-
-NB. Generate Dihedral Group of order y.
-NB. i.e. generated group has y permutations. 
-NB. (Notation D_n, or D_2n)
+0 : 0  
+Generate Dihedral Group of order y.
+i.e. generated group has y permutations. 
+(Notation D_n, or D_2n)
+)
 Dih =: ( (|. @: (0&{) ) ( (C."(_ 1) ) ,~ ]) ]) @: Cyc
 
 
@@ -33,43 +39,54 @@ NB. Verbs for elements of groups
 NB. -----------------------------------------
 
 
-NB. Get the order of permutation
+0 : 0  
+Get the order of permutation
+)
 order =: *./ @ (# & >"_) @ C.
 
 
-NB. Get inverse of permutation
+0 : 0  
+Get inverse of permutation
+)
 inverse =: /:
 
-
-NB. Returns 1 if y is identity element,
-NB. reutrns 0 otherwise.
+0 : 0  
+Returns 1 if y is identity element,
+returns 0 otherwise.
+)
 is_identity =: < = ( < @: C./~ )
 
-
-NB. Gets the identity element's index in group y.
+0 : 0  
+Gets the identity element's index in group y.
+)
 get_identity =: I. @:( is_identity"1 )
 
-
-NB. Conjugates y by x. i.e. calculates permutation
-NB. equal to x^(_1)*y*x.
+0 : 0  
+Conjugates y by x. i.e. calculates permutation
+equal to x^(_1)*y*x.
+)
 conjugate =: (([: /:"1 [) C."(1 1) (C."(1 1)~))
 
-
-NB. Gives the right cosets of element y in group x.
+0 : 0  
+Gives the right cosets of element y in group x.
+)
 rcosets =: ~.@:(/:~"2) @:( ] C."(_ 1) [)
 
-
-NB. Gives the left cosets of element y in group x.
+0 : 0  
+Gives the left cosets of element y in group x.
+)
 lcosets =: ~.@:(/:~"2) @: ( C."1"1 _ )
 
-
-NB. Returns the set of right cosets of subgroup y
-NB. in group x. 
+0 : 0  
+Returns the set of right cosets of subgroup y
+in group x. 
+)
 get_rcosets =: ~.@:( /:~"2 )@:( rcosets"(1 _) )
 
-
-NB. Gets the right transversals of subgroup y in
-NB. group x.
+0 : 0  
+Gets the right transversals of subgroup y in
+group x.
+)
 r_transversals =. 0&{"2 @: get_rcosets
 
 
@@ -77,65 +94,75 @@ NB. -----------------------------------------
 NB. Verbs for conjugacy classes
 NB. -----------------------------------------
 
-
-NB. Creates conjugacy class of element y
-NB. in group x.
+0 : 0  
+Creates conjugacy class of element y
+in group x.
+)
 conj_class =: <@:( /:~"2 )@:~. @: conjugate
 
-
-NB. Gets the conjugacy class output by conjugating
-NB. group y with itself. (Will contain multiple copies of
-NB. the same conjugacy classes).
+0 : 0  
+Gets the conjugacy class output by conjugating
+group y with itself. (Will contain multiple copies of
+the same conjugacy classes).
+)
 conjugate_list =: conj_class"(_ 1)/~
 
-
-NB. Gets the array of conjugacy classes of the 
-NB. given group. Nubs out duplicate arrays in
-NB. conjugate_list to give the conjugacy classes.
+0 : 0  
+Gets the array of conjugacy classes of the 
+given group. Nubs out duplicate arrays in
+conjugate_list to give the conjugacy classes.
+)
 conjugacy_classes =: ~.@: conjugate_list
 
-
-NB. Stabilizer of point 0, in group y
+0 : 0  
+Stabilizer of point 0, in group y
+)
 stab0 =: ( I. @: (0&=) @: (0&{"1) ) { ]
 
-
-NB. Stabilizer of point x in group y.
-NB. Will fail if x is larger than number of
-NB. objects y is permuting.
+0 : 0  
+Stabilizer of point x in group y.
+Will fail if x is larger than number of
+objects y is permuting.
+)
 stabp =:  ( I. @: ( [ =  {"1) ) { ]
 
-
-NB. Returns the center of group y. Calculates center by
-NB. conjugating all elements, i.e. |y|^2 conjugations,
-NB. and matches those that leave original element unchanged.
-NB. Slow ~ O(n^2).
+0 : 0  
+Returns the center of group y. Calculates center by
+conjugating all elements, i.e. |y|^2 conjugations,
+and matches those that leave original element unchanged.
+Slow ~ O(n^2).
+)
 center =: ( I. @: ( < ="(_ 2 ) ( <"2 @: ( ] conjugate"(1 _) ] ) ) ) ) { ]
 
-
-NB. Returns 1 if the group, y, is cyclic,
-NB. 0 otherwise. Searches for element, g,
-NB. such that o(g) = |y|.
-NB. Slow. TODO speed up.
+0 : 0  
+Returns 1 if the group, y, is cyclic,
+0 otherwise. Searches for element, g,
+such that o(g) = |y|.
+)
 is_cyclic =: # e. (order"1)
 
-
-NB. Orbit of element y in group x.
-NB. Returns the list of indices in y's orbit.
+0 : 0  
+Orbit of element y in group x.
+Returns the list of indices in y's orbit.
+)
 orbit =: ~.@:( /:~"1 ) @: ([ i."(1 _) ] )
 
-
-NB. Returns the orbit of element y in group x, boxed.
+0 : 0  
+Returns the orbit of element y in group x, boxed.
+)
 orbit_boxed =: <@:~.@:( /:~"1 ) @: ([ i."(1 _) ] )
 
-
-NB. Returns the list of orbit sizes for each
-NB. element of group y.
+0 : 0  
+Returns the list of orbit sizes for each
+element of group y.
+)
 orbit_sizes =: ] ( # @: orbit"(_ 0) ) (0&{"2)
 
-
-NB. Returns 1 if group y is transitive, 0 otherwise.
-NB. TODO This is too slow. Should stop calculation
-NB. if one element's orbit size is less than group order.
+0 : 0  
+Returns 1 if group y is transitive, 0 otherwise.
+TODO This is too slow. Should stop calculation
+if one element's orbit size is less than group order.
+)
 is_transitive =: 3 : 0
 if. is_cyclic y do.
 	1
