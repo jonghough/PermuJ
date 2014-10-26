@@ -114,6 +114,11 @@ conjugate_list to give the conjugacy classes.
 )
 conjugacy_classes =: ~.@: conjugate_list
 
+0 : 0
+Returns the conjugacy class sizes of group y, in boxed form.
+)
+ccs =: (#&.(>"0)) @: conjugacy_classes
+
 0 : 0  
 Stabilizer of point 0, in group y
 )
