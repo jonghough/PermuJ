@@ -1,7 +1,8 @@
-0 : 0 Script contains various Permutation Group Theory
- related verbs.
- @author Jon Hough
- @since 10 July 2014
+0 : 0 
+Script contains various Permutation Group Theory
+related verbs.
+@author Jon Hough
+@since 10 July 2014
 )
 
 NB. -----------------------------------------

@@ -3,7 +3,6 @@ NB. commutator subgroups.
 NB. @author Jon Hough
 NB. @since 16 July 2014
 
-NB. TODO path to permutationgroups.ijs
 
 NB. Returns the commutator of element x
 NB. and element y. [x, y], defined as the product
