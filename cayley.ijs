@@ -9,7 +9,7 @@ Multiplication index.
 The index in the permutation list of element y
 multiplied by elements of the group x.
 )
-multindex =: [ i. C.
+multindex =. [ i. C.
 
 0 : 0
 Cayley table

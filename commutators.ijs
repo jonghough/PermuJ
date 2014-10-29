@@ -9,7 +9,6 @@ NB. and element y. [x, y], defined as the product
 NB. y^(_1) * x^(_1) * y * x.
 commutator =: ( inverse @: ] ) C."(1 1) conjugate
 
-
 NB. Returns the commutator (derived) subgroup of group y.
 derived_subgroup =:  3 : 0
 ord  =. # y       NB. order of group y
