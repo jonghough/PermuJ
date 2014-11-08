@@ -139,6 +139,19 @@ Slow ~ O(n^2).
 )
 center =: ( I. @: ( < ="(_ 2 ) ( <"2 @: ( ] conjugate"(1 _) ] ) ) ) ) { ]
 
+
+0 : 0
+Returns the boxed elements of group x which commute
+with element y. i.e. returns the centralizer of y in x.
+)
+centralizer =: 4 : 0
+grp =. x
+elt =. y
+boxedElt =: < elt
+conj =: <"1 ( grp conjugate"(1 _) elt )
+t =: (conj = boxedElt)# conj
+t
+)
 0 : 0  
 Returns 1 if the group, y, is cyclic,
 0 otherwise. Searches for element, g,
