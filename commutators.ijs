@@ -63,7 +63,7 @@ NB. Returns the derived series of group y
 NB. as a boxed list, with the group isomorphism of ech
 NB. item in the series if known.
 derived_series =: verb define
-	result =: < 'DERIVED SERIES: '
+	result =: ''
 	ord =: #@:{.
 	grp =: y
 	ogrp =: _1+ # grp 
@@ -83,7 +83,11 @@ derived_series =: verb define
 		elseif. is_directproduct grp do.
 			result =: result, <( 'Direct product ',":or)
 		elseif. 1 do.
-			result =: result, <( '??? ',":or)
+			if. or > 10 do.
+				result =: result, <( 'Group of order ',":or)
+			elseif. 1 do.
+				result =: result, <( 'Group: ',":(<"1 grp))
+			end.
 		end.
 		ogrp =. # grp
 		grp =. derived_subgroup grp
