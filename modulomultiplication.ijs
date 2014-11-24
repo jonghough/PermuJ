@@ -61,6 +61,11 @@ Returns boxed list of Cyclic groups.
 )
 calculate_mmg =: mmg_composite 
 
+0 : 0
+Generates the permutation set isomorphic to the modulo multiplication
+group for the positive integer y.
+)
+generate_mmg =: >@:((dir_prod &.>)/) @: calculate_mmg 
 
 0 : 0
 Returns a boxed list of group names, isomorphic to the direct product factors
