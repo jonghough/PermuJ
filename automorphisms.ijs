@@ -68,6 +68,16 @@ NB. Euler totient function
 totient=: (- ~:)&.q:
 
 
+
+NB. ===========================================================
+NB. Automorphism searching functions. These functions find 
+NB. automorphisms by exchanging the positions of each letter
+NB. in the permutation group, using the verb A.
+NB. The process is computationally slow, but will find all such
+NB. permutations which, whhen ordered correctly equal the initial
+NB. group.
+NB. ===========================================================
+
 0 : 0
 Generates the xth permutation of each row in permutation set y.
 )
@@ -82,7 +92,7 @@ order_xperm =: /:~"2 @: xperm
 Checks if the ordered xperm permutation list is equal 
 to the original list.
 )
-is_automorphism =: ([:< ]) = (< @: order_xperm)
+is_automorphism =: ] -: order_xperm
 
 
 0 :0
