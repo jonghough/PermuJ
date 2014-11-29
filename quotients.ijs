@@ -4,7 +4,7 @@ NB. @author Jon Hough
 
 0 : 0
 Calculates quotient group multiplication of cosets x and y.
-x and y must be cosets of subgroup N of G. Multiplication
+x and y must be cosets of normal subgroup N of G. Multiplication
 x * y is n1g * n2G where g is the first permutation fo x,
 n1 and n2 are elements of N and G is the initial group.
 Calculation is equivalent to group multiplication in
