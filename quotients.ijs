@@ -41,3 +41,7 @@ end.
 end.
 c
 )
+0 : 0
+Calculates all the orders of the elements of the quotient group y.
+)
+all_qorders =: qorder"2
