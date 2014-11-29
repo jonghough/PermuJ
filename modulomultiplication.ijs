@@ -51,8 +51,14 @@ Calculates the modulo multiplication group for composite integer.
 mmg_composite =: verb define
 grp =: 0
 d =: ^/@:decompose y
-list =: (mmg_switch"0&.>)@:( <"0) d
-list
+d =: d -. 2 NB. remove 2 as modulo multiplication group is identity.
+NB. special case for 2.
+if. d = 2 do.
+	0
+else. 
+	list =: (mmg_switch"0&.>)@:( <"0) d
+	list
+end.
 )
 
 0 : 0
