@@ -10,7 +10,7 @@ n1 and n2 are elements of N and G is the initial group.
 Calculation is equivalent to group multiplication in
 the quotient group, G/N.
 )
-qmult =:   (~.&.<"2@: ( /:~"2 )) @: ((0&{"2@:[) C."(_ 1) ])
+qmult =:   ( ( /:~"2 )) @: ((0&{"2@:[) C."(_ 1) ])
 
 0 : 0
 Calculates the order of an element 
@@ -28,16 +28,19 @@ Alt4 / V4.
 qorder =: verb define
 
 size =. # 0{ y
-id =.  i. size
-perm =. y 
-c =: 1
-if. id -:"(_ 1)  y do.
-	1
+id =:  < i. size
+perm =: y 
+c =: 0
+exists =:  (0&=)@:([ e. ([: <"1 ]))
+isId =: id&=@:(<@:(0&{"2))
+if. id e. (<"1 perm) do.
+	c =: 1
 else. 
-whilst. (+/(id -:"(_ 1)  perm)) = size do.
-	perm =. qmult/~ perm
-	c =: c + 1
-end.
+	while. -. isId perm  do. 
+		perm =. y qmult perm
+		c =: c + 1
+
+	end.
 end.
 c
 )
