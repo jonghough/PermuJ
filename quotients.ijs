@@ -30,13 +30,14 @@ qorder =: verb define
 size =. # 0{ y
 id =:  < i. size
 perm =: y 
-c =: 0
+c =: 1
 exists =:  (0&=)@:([ e. ([: <"1 ]))
 isId =: id&=@:(<@:(0&{"2))
 if. id e. (<"1 perm) do.
 	c =: 1
 else. 
 	while. -. isId perm  do. 
+
 		perm =. y qmult perm
 		c =: c + 1
 
@@ -48,3 +49,31 @@ c
 Calculates all the orders of the elements of the quotient group y.
 )
 all_qorders =: qorder"2
+
+
+0 : 0
+Calculates the inverse of coset y in quotient group x.
+)
+qinverse =: dyad define
+grp =: ''
+size =. # 0{ y
+id =:  < i. size
+index =: 0
+for_j. i. # x do.
+	if. id e. (<"1 (y qmult (j{"3 x))) do.
+		grp =: j{"3 x
+		index =: j
+		break.
+	end.
+end.
+grp ; index
+	
+)
+
+0 : 0
+Calculates all the inverses
+)
+all_qinverses =: qinverse"(_ 2)/~
+
+NB. notes example group quotient
+NB. s3xa4 / [s3xa4] = c6
