@@ -52,8 +52,8 @@ NB. P is the collection of even blocks (points).
 NB. L the collection of odd blocks (lines)
 NB. each L defines a unique triple in P; those blocks who add to give
 NB. 4. 
-P =. even_block0; even_block1; even_block2; even_block3; even_block4; even_block5; even_block6; even_block7
-L =. odd_block0; odd_block1; odd_block2; odd_block3; odd_block4; odd_block5; odd_block6; odd_block7
+P =: even_block0; even_block1; even_block2; even_block3; even_block4; even_block5; even_block6; even_block7
+L =: odd_block0; odd_block1; odd_block2; odd_block3; odd_block4; odd_block5; odd_block6; odd_block7
 
 
 NB. TODO 
@@ -61,3 +61,14 @@ NB. 1. create verb to get the points on lines.
 NB. 2. Create C-space, from three copies of P and L.
 NB. 3. Find octads in C-space
 NB. 4. Generate S(5,8,24) steiner system.
+
+NB.
+mathieu_intersect =: (2&|@:+)&.>
+sum =: ((+/)@:,)&.>@:mathieu_intersect
+is_in =: ((4&=)@:(+/)@:,)&.>@:mathieu_intersect
+NB. e.g. P is_in"(0 _) L
+
+NB. three copies of P to use
+P1 =: P
+P2 =: P
+P3 =: P

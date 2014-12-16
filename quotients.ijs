@@ -75,5 +75,7 @@ Calculates all the inverses
 )
 all_qinverses =: qinverse"(_ 2)/~
 
+
+qconjugate =: ([: inverse ]) qmult qmult
 NB. notes example group quotient
 NB. s3xa4 / [s3xa4] = c6
