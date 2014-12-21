@@ -72,3 +72,13 @@ NB. three copies of P to use
 P1 =: P
 P2 =: P
 P3 =: P
+
+NB. ZERO array
+ZERO =: < 4 2 $ 0
+
+NB. calculates which sums of vectors are zero
+NB. e.g. P zeroSUms"0 _ P
+zeroSums =: (ZERO&=@:<@:add)&.>
+
+NB. a and b are copies of the intersection of P and L.
+a=: b=: ,  P mathieu_intersect"(0 _) L
