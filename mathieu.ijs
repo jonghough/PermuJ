@@ -78,7 +78,15 @@ ZERO =: < 4 2 $ 0
 
 NB. calculates which sums of vectors are zero
 NB. e.g. P zeroSUms"0 _ P
-zeroSums =: (ZERO&=@:<@:add)&.>
+zeroSums =: (ZERO&=@:<@:sum)&.>
 
-NB. a and b are copies of the intersection of P and L.
-a=: b=: ,  P mathieu_intersect"(0 _) L
+
+NB. Multidimensional indexing
+Idot =: $ #: I.@:,
+
+NB. get the intersections of 3 copies of P whose intersection is zero.
+
+PP =: mathieu_intersect/"0 _~ P
+PPP =: P sum"0 _ PP
+NB. PPP is all the intersections of PXPXP.
+zeros =: Idot (<0) = PPP
