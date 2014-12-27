@@ -78,6 +78,7 @@ NB. permutations which, whhen ordered correctly equal the initial
 NB. group.
 NB. ===========================================================
 
+
 0 : 0
 Generates the xth permutation of each row in permutation set y.
 )
@@ -102,3 +103,11 @@ If y acts on N letters, this requires O(N!) calculations.
 calc_automorphism_list =: ((i.@:!@: (0{ #"1))  is_automorphism"(0 _) ]) @: (/:~"2)
 
 automorphism_index_list =: I. @: calc_automorphism_list
+
+
+NB. Testing stuff ignore
+xp =: [ C."_ 1 ]
+oxp =: /:~"2 @:xp
+isa =: (/:~"2 @:]) -: oxp
+cal =: (Sym@: (0&{ @: (#"1)))  isa"(1 _) (/:~"2 @:])
+NB. testing
