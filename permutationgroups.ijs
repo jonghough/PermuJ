@@ -44,7 +44,10 @@ Get the order of permutation
 )
 order =: *./ @ (# & >"_) @ C.
 
-
+0 : 0
+Power of an element
+)
+pow=: {^:(]`(i.@#@[))
 0 : 0  
 Get inverse of permutation
 )

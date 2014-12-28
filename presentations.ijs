@@ -13,3 +13,4 @@ NB. x < 4 would be the verb modified by this adverb.
 where=: 2 : '(#~ v) m'
 
 NB. todo generate group permutations from a list of conditions in verb v, modified by where.
+
