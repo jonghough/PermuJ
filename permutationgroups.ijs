@@ -125,7 +125,7 @@ ccs =: (#&.(>"0)) @: conjugacy_classes
 0 : 0  
 Stabilizer of point 0, in group y
 )
-stab0 =: ( I. @: (0&=) @: (0&{"1) ) { ]
+stab0 =: I.@:(0&=)@:(0&{"1) { ]
 
 0 : 0  
 Stabilizer of point x in group y.
@@ -140,7 +140,7 @@ conjugating all elements, i.e. |y|^2 conjugations,
 and matches those that leave original element unchanged.
 Slow ~ O(n^2).
 )
-center =: ( I. @: ( < ="(_ 2 ) ( <"2 @: ( ] conjugate"(1 _) ] ) ) ) ) { ]
+center =: I.@:(< ="_ 2 <"2@:(] conjugate"1 _ ])) { ]
 
 
 0 : 0
