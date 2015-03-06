@@ -86,7 +86,9 @@ NB. direct product test
     if. or > 10 do.
       result=: result, <( 'Group of order ',":or)
     elseif. 1 do.
-      result=: result, <( 'Group: ',":(<"1 grp))
+      if. IsV4Isomorphic grp do. result=: result, <('V4')
+      else. result=: result, <( 'Group: ',":(<"1 grp))
+      end.
     end.
   end.
   ogrp=. # grp
