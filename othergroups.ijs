@@ -26,3 +26,11 @@ NB. 3 2 1 0
 NB. 1 0 3 2
 NB. 2 3 0 1
 V4 =: 4 4 $ 0 1 2 3, 3 2 1 0, 1 0 3 2, 2 3 0 1
+
+
+IsV4Isomorphic =: monad define
+grp =: y
+if. 4 = # grp do.
+-. 4 e. order grp
+else. 0 end. 
+)
