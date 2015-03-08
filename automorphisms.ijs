@@ -79,27 +79,20 @@ NB. group.
 NB. =========================================================
 
 
-0 : 0
-Generates the xth permutation of each row in permutation set y.
-)
+NB. Generates the xth permutation of each row in permutation set y.
 xperm=: A."(0 1)
 
-0 : 0
-Orders the permutations
-)
+NB. Orders the permutations
+
 order_xperm=: /:~"2 @: xperm
 
-0 : 0
-Checks if the ordered xperm permutation list is equal
-to the original list.
-)
+NB. Checks if the ordered xperm permutation list is equal
+NB. to the original list.
 is_automorphism=: ] -: order_xperm
 
 
-0 :0
-Gives the positions of the permutations which are automorphisms of group y.
-If y acts on N letters, this requires O(N!) calculations.
-)
+NB. Gives the positions of the permutations which are automorphisms of group y.
+NB. If y acts on N letters, this requires O(N!) calculations.
 calc_automorphism_list=: ((i.@:!@: (0{ #"1)) is_automorphism"(0 _) ]) @: (/:~"2)
 
 automorphism_index_list=: I. @: calc_automorphism_list
