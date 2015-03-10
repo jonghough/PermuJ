@@ -15,15 +15,15 @@ NB.Modulo multiplication group for odd prime power.
 mmg_oddp=: Cyc @: totient
 NB.Modulo multiplication group for powers of 2.
 mmg_2pow=: verb define
-grp=: 0
+grp=. 0
 if. y = 2 do.
-  grp=: 0
+  grp=. 0
 elseif. y = 4 do.
-  grp=: Cyc 2
+  grp=. Cyc 2
 elseif. 1 do.
-  pow=: 1&{"2 decompose y
-  p=: 2 ^ (pow - 2)
-  grp=: (Cyc 2) dir_prod (Cyc p)
+  pow=. 1&{"2 decompose y
+  p=. 2 ^ (pow - 2)
+  grp=. (Cyc 2) dir_prod (Cyc p)
 end.
 grp
 )
@@ -33,15 +33,12 @@ NB.Decomposes positive integer y into prime factors and powers.
 decompose=: 2&p:
 NB.Calculates the modulo multiplication group for composite integer.
 mmg_composite=: verb define
-grp=: 0
-d=: ^/@:decompose y
-d=: d -. 2 NB. remove 2 as modulo multiplication group is identity.
+grp=. 0
+d=. ^/@:decompose y
+d=. d -. 2 NB. remove 2 as modulo multiplication group is identity.
 NB. special case for 2.
-if. d = 2 do.
-  0
-else.
-  list=: (mmg_switch"0&.>)@:( <"0) d
-  list
+if. d = 2 do.0
+else.(mmg_switch"0&.>)@:( <"0) d
 end.
 )
 NB.Calculates the Modulo multiplication group for positive integer y.

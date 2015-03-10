@@ -11,18 +11,15 @@ NB. If y is cyclic and has order 2,4 a prime power or twice
 NB. a prime power then the automorphism group is isomoephic
 NB. to the cyclic group of order phi(y).
 if. is_cyclic y do.
-  phi 	=: totient ord
-  primes 	=: q: ord
+  phi 	=. totient ord
+  primes 	=. q: ord
   
   if. (ord = 2) +. ( ord = 4) do.
-    aut=: Cyc phi
-    aut
+    Cyc phi
   elseif. (1 = (2 e. primes) ) *. ((# primes) = 2) do.
-    aut=: Cyc phi
-    aut
+    Cyc phi
   elseif. (0 = (2 e. primes) ) *. ((# primes) = 1) do.
-    aut=: Cyc phi
-    aut
+    Cyc phi
   elseif. 1 do.
     0
   end.
@@ -32,11 +29,9 @@ NB. |y| = 6, is a special case with aut(y) = Sym(6) semi-direct
 NB. product with Sym(2).
 elseif. is_symmetric y do.
   if. 0 = (ord e. 1 2 6) do.
-    aut=: y
-    aut
+    y
   elseif. 1 = (ord e. 1 2) do.
-    aut=: 0 NB. trivial group
-    aut
+    0 NB. trivial group
   elseif. 1 do.
     _1 NB. TODO case where order is 6
   end.
@@ -47,14 +42,11 @@ NB. |y| = 6, is a special case with aut(y) = Sym(6) semi-direct
 NB. product with Sym(2).
 elseif. is_alternating y do.
   if. (ord > 3) *. ((ord = 6) = 0) do.
-    aut=: Sym ord NB. symmetric group on ord letters.
-    aut
+    Sym ord NB. symmetric group on ord letters.
   elseif. 1 = (ord e. 1 2) do.
-    aut=: 0 NB. trivial group
-    aut
+    0 NB. trivial group
   elseif. ord = 3 do.
-    aut=: Sym 2
-    aut
+    Sym 2
   elseif. ord = 6 do.
     _1 NB. TODO case where order is 6
   end.
