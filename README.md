@@ -123,7 +123,9 @@ We can also attempt to decompose dg into direct products.
 ```decompose_directproduct dg```
 
 ┌─────┬─────┬─────┐
+
 │Alt 4│Sym 2│Sym 2│
+
 └─────┴─────┴─────┘
 
    
