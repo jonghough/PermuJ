@@ -7,7 +7,16 @@ Includes, or will hopefully include:
 Creating permutation presentations of symmetric, alternating, dihedral, cyclic
 groups.
 
-Finding cosets, conjugacy classes, subgroups, centers, commutators, derived subgroups, involutions etc.
+Functionality includes:
+* finding conjugacy classes and cosets
+* enumerating conjugacy classes
+* finding subgroups
+* commutators and derived subgroups
+* involutions and centers
+* quotients
+* automorphisms
+* constructing modulo-multiplication groups for given positive integer
+* direct products
 
 Finding normal subgroups and group structure, and finding quotient groups, and automorphisms.
 
