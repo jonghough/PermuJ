@@ -138,8 +138,13 @@ We can also attempt to decompose dg into direct products.
 └─────┴─────┴─────┘
 
    
+   Example: Calculate module multiplication group for the number 45:
+   
+   `mmg_groupnames 45`
+   
+   Example: Calculate possible sylow subgroups of S(5) (symmetirc group on 5 elements):
 
-
+   `sylow3 Sym 5`
 
 
   
