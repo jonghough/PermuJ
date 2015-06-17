@@ -10,19 +10,10 @@ ord=. # y
 NB. If y is cyclic and has order 2,4 a prime power or twice
 NB. a prime power then the automorphism group is isomoephic
 NB. to the cyclic group of order phi(y).
-if. is_cyclic y do.
-  phi 	=. totient ord
-  primes 	=. q: ord
-  
-  if. (ord = 2) +. ( ord = 4) do.
-    Cyc phi
-  elseif. (1 = (2 e. primes) ) *. ((# primes) = 2) do.
-    Cyc phi
-  elseif. (0 = (2 e. primes) ) *. ((# primes) = 1) do.
-    Cyc phi
-  elseif. 1 do.
-    0
-  end.
+if. (is_cyclic *. decompose_directproduct) y do.
+  generate_mmg # y
+elseif. is_cyclic y do.
+  1 NB.TODO implement for direct products of cyclic groups
 NB. If y is symmetric then automorphism group is isomorophic
 NB. to itself if order of y is not 1, 2, or 6.
 NB. |y| = 6, is a special case with aut(y) = Sym(6) semi-direct
