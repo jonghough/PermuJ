@@ -39,6 +39,7 @@ NB. Test Sylow's theorem 3 (modulo tests).
 test=: ((((1&="(1 0))@:(primeList&|"(1 0)))*.((1&="(1 0))@:(coprimeList&div"(1 0)))) * ])
 NB. Calculate result
 res=: ~.@:(test"0) poss
+res =:  ((I.@:-.@:(0&e."0 1)) { ]) res
 NB. box with original prime powers.
 res=: (2 1) $ ((< maxPowers), <"2 res )
 res
