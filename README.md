@@ -62,7 +62,8 @@ NB. Get the derived subgroup of s4d4
 
 which gives
 
-```0 1 2 3 4 5 6 7
+```
+0 1 2 3 4 5 6 7
 
 0 3 1 2 4 5 6 7
 
@@ -108,7 +109,8 @@ which gives
 
 2 3 0 1 6 7 4 5
 
-3 0 2 1 6 7 4 5```
+3 0 2 1 6 7 4 5
+```
 
 We might want to inspect the contents of the derived group:
 
