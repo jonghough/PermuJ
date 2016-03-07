@@ -1,6 +1,5 @@
 NB. Init script.
 NB. Loads the necessary scripts in order.
-NB. cocurrent <'pj'
 load '~user/projects/PermuJ/permutationgroups.ijs'
 load '~user/projects/PermuJ/directproduct.ijs'
 load '~user/projects/PermuJ/commutators.ijs'
@@ -11,3 +10,4 @@ load '~user/projects/PermuJ/sylow.ijs'
 load '~user/projects/PermuJ/permutationmatrix.ijs'
 load '~user/projects/PermuJ/modulomultiplication.ijs'
 load '~user/projects/PermuJ/extra/perms.ijs'
+load '~user/projects/PermuJ/visual.ijs'
