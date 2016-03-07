@@ -1,7 +1,7 @@
-PermuJ
-======
+# PermuJ #
 
-Collection of J scripts for doing calculations with permutation groups.
+*Collection of J scripts for doing calculations with permutation groups.*
+
 Includes, or will hopefully include:
 
 Creating permutation presentations of symmetric, alternating, dihedral, cyclic
@@ -25,15 +25,12 @@ Why J?
 The J programming language is ideal for doing any kind of mathematics, and is ideal
 for looking into permutations and groups.
 
-Usage
-======
+## Usage ##
 
 Need to have J installed. Best to install J 8.X ( http://www.jsoftware.com/stable.htm )
 
 
-Example
-======
-
+### Example ###
 
 NB. Create the symmetric group on 4 letters:
 
@@ -153,5 +150,28 @@ We can also attempt to decompose dg into direct products.
    `sylow3 Sym 5`
 
 
-  
 
+  ## Visualization ##
+  
+  ### Visualizing the orbits of the elements of a group by way of the *cayley table*. ###
+  
+  Below are visualizations of the cayley tables of *Sym(5)*, *Alt(5)* and *Dih(12)*, repsectively.
+  
+  ![Sym 5](/sym5.png?raw=true "Sym 5 visualization") ![Alt 5](/alt5.png?raw=true "Alt 5 visualization") ![Dih 12](/dih12.png?raw=true "Dih 12 visualization")
+  
+  These are created by 
+  ```
+   view_table Sym 5
+   view_table Alt 5
+   view_table Dih 12
+   ```
+  
+  It is also possible to view the orbit of a single element of the group. e.g. below is the orbit of a single element in 
+  the group *Sym(3) x Cyc(5)*:
+  
+   ![Sym 5](/orbitSym3xCyc5.png?raw=true "Sym 5 visualization")
+
+This is created by
+```
+1 view_orbit (Sym 3) dir_prod (Cyc 5) NB. left arg, 1, is the index of the permutation in Sym3xCyc5 
+```
