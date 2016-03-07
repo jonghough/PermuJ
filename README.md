@@ -150,14 +150,13 @@ We can also attempt to decompose dg into direct products.
    `sylow3 Sym 5`
 
 
-
-  ## Visualization ##
+## Visualization ##
   
-  ### Visualizing the orbits of the elements of a group by way of the *cayley table*. ###
+### Visualizing the orbits of the elements of a group by way of the *cayley table*. ###
   
-  Below are visualizations of the cayley tables of *Sym(5)*, *Alt(5)* and *Dih(12)*, repsectively.
+Below are visualizations of the cayley tables of *Sym(5)*, *Alt(5)* and *Dih(12)*, repsectively.
   
-  ![Sym 5](/sym5.png?raw=true "Sym 5 visualization") ![Alt 5](/alt5.png?raw=true "Alt 5 visualization") ![Dih 12](/dih12.png?raw=true "Dih 12 visualization")
+![Sym 5](/sym5.png?raw=true "Sym 5 visualization") ![Alt 5](/alt5.png?raw=true "Alt 5 visualization") ![Dih 12](/dih12.png?raw=true "Dih 12 visualization")
   
   These are created by 
   ```
