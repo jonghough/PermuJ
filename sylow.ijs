@@ -25,21 +25,18 @@ ord=. # y
 div=. (<.=>.)@:%
 decompN=. 2&p:@:#
 NB. List of primes dividing |y|
-primeList=. ~. (3&p:) # y
+primeList=. <"0@:~. (3&p:) # y
 NB. Orders of the primes dividing |y|
-ordersN=. ~.@:,/@:((0&{"2) ^"(0 0) (1&{"2))
+ordersN=. ~.@:,@:^/
 NB. The value of each prime p to the max power dividing |y|.
-maxPowers=. ordersN decompN y
+maxPowers=: ordersN decompN y
 NB. Initial possible values for the number of Sylow-p subgroups.
-poss=. (i.@:#) y
+poss=. <@:(i.@:#) y
 NB. Coprime list: List of |y|/p^n for each prime p.
-coprimeList=. %&(maxPowers) # y
+coprimeList=. <"0@:%&(maxPowers) # y
 NB. Test Sylow's theorem 3 (modulo tests).
-test=. ((((1&="(1 0))@:(primeList&|"(1 0)))*.((1&="(1 0))@:(coprimeList&div"(1 0)))) * ])
-NB. Calculate result
-res=. ~.@:(test"0) poss
-NB. remove any results with zero in row.
-res=. ((I.@:-.@:(0&e."0 1)) { ]) res
-NB. box with original prime powers.
-(2 1) $ ((< maxPowers), <"2 res )
+t1 =. (-.&0) &.> primeList ((((1&=)@:|"(1 0)) * ])&.>) poss
+t2 =. (-.&0) &.> coprimeList ((((<.=>.)@:%)"1 0*])&.>) poss
+res =. t1 ((I.@:e. { [)&.>) t2
+(<"0 maxPowers) ,&.> res
 )
